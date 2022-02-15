@@ -29,7 +29,18 @@
   <!-- Template Main CSS File -->
   <link href="{{url('frontend/assets/css/style.css')}}" rel="stylesheet">
 
- 
+ <style>
+      .inner-page .container a span {
+    position: relative;
+    z-index: 1;
+    font-size: 1em;
+    color: #fff;
+    opacity: 0.5;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    transition: 0.5s;
+}
+ </style>
 </head>
 {{-- background: rgb(39 33 88 / 80%);/ --}}
 <style>

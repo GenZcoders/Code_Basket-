@@ -29,6 +29,18 @@
   <!-- Template Main CSS File -->
   <link href="http://127.0.0.1:8000/frontend/assets/css/style.css" rel="stylesheet">
 
+  <style>
+    .inner-page .container a span {
+      position: relative;
+      z-index: 1;
+      font-size: 1em;
+      color: #fff;
+      opacity: 0.5;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      transition: 0.5s;
+    }
+  </style>
 </head>
 
 <style>
@@ -78,6 +90,63 @@
     .ub {
       align-items: flex-end width: 200px
     }
+
+    .content {
+      padding: 30px 0px 30px 0px;
+    }
+
+    .content img {
+      /* border-radius: 50%; */
+      height: 134px;
+      width: 254px;
+    }
+
+    @media only screen and (max-width: 918px) {
+      content img {
+        /* border-radius: 50%; */
+        height: 154px;
+        width: 230px;
+      }
+    }
+
+    @media only screen and (max-width: 781px) {
+      content img {
+        /* border-radius: 50%; */
+        height: 154px;
+        width: 235px;
+      }
+    }
+    
+    @media only screen and (max-width: 732ox) {
+      content img {
+        /* border-radius: 50%; */
+        height: 154px;
+        width: 200px;
+      }
+    }
+
+    @media only screen and (max-width: 936px) {
+
+
+      @media only screen and (max-width: 600px) {
+
+        #header .logo img {
+          max-height: 68px;
+          position: absolute;
+          top: 12px;
+          left: -16px;
+        }
+
+        #header .logo img {
+          max-height: 68px;
+          position: absolute;
+          top: -4px;
+          left: -13px;
+        }
+
+
+      }
+    }
   </style>
   <!-- End Breadcrumbs -->
   <?php
@@ -104,16 +173,15 @@
       @foreach ($search as $result)
 
       <div class="col-md-4 col-sm-4 col-xs-12 u">
-        <div style="margin: 5px; border:1px solid rgba(212, 212, 212, 0.712); padding:10px;border-radius:10px"
+        <div style="margin-left:5px; border:1px solid rgba(116, 114, 114, 0.562);padding:5px;"
           class="row section-success  text-center">
-          <div class="col-md-12 section1">
+          <div class="col-md-12 content">
             @if ($result->post_photo1==null)
-            <img style="border-radius: 0px; width:455px;height:270px"
+            <img class="pic"
               src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/20191105192037/What-Are-The-Best-Resources-For-Competitive-Programming.png">
             @else
 
-            <img style="border-radius: 0px; width:455px;height:270px"
-              src="{{url('/upload/oppurtunity/'.$result->post_photo1)}}">
+            <img class="pic" src="{{url('/upload/oppurtunity/'.$result->post_photo1)}}">
             @endif
 
 

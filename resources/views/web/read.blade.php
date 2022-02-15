@@ -1,4 +1,4 @@
-   <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -38,7 +38,9 @@
 </head>
 
 <style>
-
+  .con{
+    margin: 30px 
+  }
 </style>
 
 <body>
@@ -48,7 +50,7 @@
       <h1 class="logo">
         <a href="index.html">
           <a href="{{url('/')}}" class="logo"><img src="{{url('frontend/assets/img/logo2.png')}}" alt=""
-            class="img-fluid"></a>         </a>
+              class="img-fluid"></a> </a>
       </h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
@@ -69,37 +71,39 @@
       <!-- .navbar -->
     </div>
   </header>
-<section class="inner-page ">
+  <section class="inner-page ">
     <div class="read ">
-        <br>
+      <br>
+      
+      @foreach ($read as $reads )
+      <div class="con">
+      @if ($reads->post_photo1==null)
 
-        @foreach ($read as $reads )
-        @if ($reads->post_photo1==null)
+      @else
+      <img style="border-radius: 10px" style="align-content: center" width="100%" height="493px"
+        src="{{url('upload/oppurtunity/'.$reads->post_photo1)}}">
+      @endif
 
-        @else
-        <img style="border-radius: 10px" style="align-content: center" width="100%" height="493px"
-            src="{{url('upload/oppurtunity/'.$reads->post_photo1)}}">
-        @endif
-
-        <h1>{{$reads->name}}</h1>
-        <span>Posted on -<b>{{date('d M Y', strtotime($reads->created_at))}}</b></span>
-        <hr>
-
+      <h1>{{$reads->name}}</h1>
+      <span>Posted on -<b>{{date('d M Y', strtotime($reads->created_at))}}</b></span>
+      <hr>
+        
         <div style="font-size: 18px">
-
-            {!! html_entity_decode($reads->description, ENT_QUOTES, 'UTF-8') !!}
+          
+          {!! html_entity_decode($reads->description, ENT_QUOTES, 'UTF-8') !!}
         </div>
-
-        @if ($reads->link=="")
-        @else
-        <strong> <span style="color: blue;font-size:2rem"><a style="color: rgb(96, 96, 194)"
-                    href="{{$reads->link}}">Visit</a></span></strong>
-        @endif
-        @endforeach
+        
+      </div>
+      @if ($reads->link=="")
+      @else
+      <strong> <span style="color: blue;font-size:2rem"><a style="color: rgb(96, 96, 194)"
+            href="{{$reads->link}}">Visit</a></span></strong>
+      @endif
+      @endforeach
     </div>
-</section>
-<!-- ======= Footer ======= -->
-<footer id="footer">
+  </section>
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
 
     <div class="footer-top">
       <div class="container">
@@ -142,7 +146,8 @@
             <h4>Join Our Newsletter</h4>
             <p>Stay updated with application dates and new Opportunities</p>
             <form action="http://127.0.0.1:8000/news" method="post">
-              <input type="hidden" name="_token" value="318PtJcRX3Yt9wNeRvTI5AUQn1L9wo0z2uWRm9hg">              <input type="email" name="email">
+              <input type="hidden" name="_token" value="318PtJcRX3Yt9wNeRvTI5AUQn1L9wo0z2uWRm9hg"> <input type="email"
+                name="email">
               <input type="submit" value="Subscribe">
             </form>
           </div>

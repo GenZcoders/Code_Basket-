@@ -2,7 +2,8 @@
 <html lang="en">
 
 <head>
-  {{-- <meta charset="utf-8"> --}}
+  {{--
+  <meta charset="utf-8"> --}}
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title>Code Basket</title>
@@ -38,17 +39,30 @@
 </head>
 {{-- background: rgb(39 33 88 / 80%);/ --}}
 <style>
-  #header {
-    transition: all 0.5s;
-    z-index: 975;
-    padding: 12px 0;
+  @media only screen and (max-width: 600px) {
+
+    #header .logo img {
+      max-height: 68px;
+      position: absolute;
+      top: 12px;
+      left: -16px;
+    }
+
+    #header .logo img {
+      max-height: 68px;
+      position: absolute;
+      top: -4px;
+      left: -13px;
+    }
+
+ 
   }
 </style>
 
 <body>
 
   <!-- ======= Header ======= -->
-  <header  id="header" class="fixed-top ">
+  <header id="header" class="fixed-top ">
     <div class="container d-flex align-items-center justify-content-between">
       <h1 class="logo">
         <img src="" alt="">

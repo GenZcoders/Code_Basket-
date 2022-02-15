@@ -21,11 +21,11 @@ class CreateNewUser implements CreatesNewUsers
      * @return \App\Models\User
      */
     public function create(array $input)
-    { 
+    {
         Validator::make($input, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' =>['required'],
+            'password' => ['required'],
             'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['required', 'accepted'] : '',
         ])->validate();
 
@@ -34,7 +34,7 @@ class CreateNewUser implements CreatesNewUsers
         $username = Str::substr($customemail, 0, $pos);
         return User::create([
             'name' => $input['name'],
-            'user_role_type'=>'admin',
+            'user_role_type' => 'user',
             'email' => $input['email'],
             'username' => $username,
             'password' => Hash::make($input['password']),
